@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Giaodien</string>
+    <string name="timkiem">Tìm kiếm</string>
+    <string name="xin_chao">Xin chào,</string>
+    <string name="ten_nguoi_dung">User</string>
+    <string name="tai_khoan">Tài khoản</string>
+    <string name="thong_bao">Thông báo</string>
+    <string name="lich_kham">Lịch khám</string>
+    <string name="trang_chu">Trang chủ</string>
+    <string name="ten">Nguyễn Văn Anh</string>
+    <string name="ngsinh">29/10/1999</string>
+    <string name="gioitinh">Nam</string>
+    <string name="sdt">0949225666</string>
+    <string name="diachi">Q1,TP.HCM</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>
