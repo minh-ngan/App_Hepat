@@ -23,27 +23,36 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 public class activity_verifyotp extends AppCompatActivity {
     EditText edtInputOTP,edtInputOTP_2,edtInputOTP_3,edtInputOTP_4,edtInputOTP_5,edtInputOTP_6;
+    TextView txtMobile;
+    ProgressBar progressBar;
+    Button btnVerify;
     private String verificationId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verifyotp);
-        TextView txtMobile = findViewById(R.id.txtMobile);
-        txtMobile.setText(String.format("+84-",getIntent().getStringExtra("sdt")));
+        linkViews();
+        addEvents();
+        setupInputs();
 
+
+    }
+    private void linkViews() {
+        txtMobile = findViewById(R.id.txtMobile);
+        progressBar = findViewById(R.id.progressbar);
+        btnVerify = findViewById(R.id.btnVerify);
         edtInputOTP = findViewById(R.id.edtInputOTP);
         edtInputOTP_2 = findViewById(R.id.edtInputOTP_2);
         edtInputOTP_3 = findViewById(R.id.edtInputOTP_3);
         edtInputOTP_4 = findViewById(R.id.edtInputOTP_4);
         edtInputOTP_5 = findViewById(R.id.edtInputOTP_5);
         edtInputOTP_6 = findViewById(R.id.edtInputOTP_6);
-        setupInputs();
+    }
 
-        final ProgressBar progressBar = findViewById(R.id.progressbar);
-        final Button btnVerify = findViewById(R.id.btnVerify);
+    private void addEvents() {
+        txtMobile.setText(String.format("+84-",getIntent().getStringExtra("sdt")));
         verificationId = getIntent().getStringExtra("verificationId");
-
         btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +62,7 @@ public class activity_verifyotp extends AppCompatActivity {
                         ||edtInputOTP_4.getText().toString().trim().isEmpty()
                         || edtInputOTP_5.getText().toString().trim().isEmpty()
                         || edtInputOTP_6.getText().toString().trim().isEmpty()){
-                    Toast.makeText(activity_verifyotp.this,"Please enter code", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity_verifyotp.this,"Vui lòng nhập otp", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String code = edtInputOTP.getText().toString()+
@@ -79,7 +88,7 @@ public class activity_verifyotp extends AppCompatActivity {
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             }
-                            else  Toast.makeText(activity_verifyotp.this,"Code entered invalid", Toast.LENGTH_SHORT).show();
+                            else  Toast.makeText(activity_verifyotp.this,"Otp không hợp lệ", Toast.LENGTH_SHORT).show();
 
                         }
                     });
@@ -87,6 +96,8 @@ public class activity_verifyotp extends AppCompatActivity {
             }
         });
     }
+
+
     private void setupInputs(){
         edtInputOTP.addTextChangedListener(new TextWatcher() {
             @Override

@@ -19,15 +19,26 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.concurrent.TimeUnit;
 
 public class Login_Activity extends AppCompatActivity {
+    EditText inputMobile ;
+    Button btnLogin;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        final EditText inputMobile = findViewById(R.id.edtSđt);
-        Button btnLogin = findViewById(R.id.btnLogin);
-        final ProgressBar progressBar = findViewById(R.id.progressbar);
+        linkViews();
+        addEvents();
 
+
+    }
+    private void linkViews() {
+        inputMobile = findViewById(R.id.edtSđt);
+        btnLogin = findViewById(R.id.btnLogin);
+        progressBar = findViewById(R.id.progressbar);
+    }
+
+    private void addEvents() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,4 +82,6 @@ public class Login_Activity extends AppCompatActivity {
             }
         });
     }
+
+
 }
